@@ -1,0 +1,15 @@
+let input = require("readline-sync")
+let tab = input.questionInt ("digite um numero:")
+if(tab < 10){
+    console.log ('a tabuada do numero ' + tab + " é :")
+    console.log (tab*1)
+    console.log (tab*2)
+    console.log (tab*3)
+    console.log (tab*4)
+    console.log (tab*5)
+    console.log (tab*6)
+    console.log (tab*7)
+    console.log (tab*8)
+    console.log (tab*9)
+    console.log (tab*10)
+}
