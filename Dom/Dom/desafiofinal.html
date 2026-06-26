@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pessoas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sistema de Cadastro de Pessoas</h2>
+        
+        <div class="form-group">
+            <input type="text" id="nome" placeholder="Digite o nome" autocomplete="off">
+            <input type="number" id="idade" placeholder="Digite a idade" min="0">
+            <button id="btnCadastrar">Cadastrar</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela">
+                </tbody>
+        </table>
+
+        <div class="contador">
+            Total de cadastrados: <span id="totalCadastrados">0</span>
+        </div>
+    </div>
+
+<style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="text"] {
+    flex: 2;
+}
+
+input[type="number"] {
+    flex: 1;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #555;
+}
+
+.contador {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #444;
+    text-align: right;
+}
+</style>
+
+
+
+<script>
+
+const inputNome = document.getElementById('nome');
+const inputIdade = document.getElementById('idade');
+const btnCadastrar = document.getElementById('btnCadastrar');
+const corpoTabela = document.getElementById('corpoTabela');
+const totalCadastrados = document.getElementById('totalCadastrados');
+
+
+let total = 0;
+
+
+function cadastrarPessoa() {
+    
+    const nome = inputNome.value.trim();
+    const idade = inputIdade.value.trim();
+
+    // Validação simples para evitar campos vazios
+    if (nome === '' || idades === '') {
+        alert('Por favor, preencha todos os campos antes de cadastrar!');
+        return;
+    }
+
+    // 3. Criando novos elementos no DOM (.createElement)
+    const novaLinha = document.createElement('tr');
+    const colunaNome = document.createElement('td');
+    const colunaIdade = document.createElement('td');
+
+    // 4. Inserindo o texto nas colunas (.textContent)
+    colunaNome.textContent = nome;
+    colunaIdade.textContent = idade;
+
+    // 5. Adicionando as colunas dentro da linha e a linha na tabela (.appendChild)
+    novaLinha.appendChild(colunaNome);
+    novaLinha.appendChild(colunaIdade);
+    corpoTabela.appendChild(novaLinha);
+
+    // 6. Atualizando o total de cadastrados
+    total++;
+    totalCadastrados.textContent = total;
+
+    // 7. Limpando os campos de texto e focando no campo nome para o próximo cadastro
+    inputNome.value = '';
+    inputIdade.value = '';
+    inputNome.focus();
+}
+
+// 8. Adicionando o evento de clique ao botão (.addEventListener)
+btnCadastrar.addEventListener('click', cadastrarPessoa);
+
+// Bônus: Permitir cadastrar ao apertar "Enter" no teclado
+inputIdade.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        cadastrarPessoa();
+    }
+});
+
+</script>
+</body>
+</html>
+</body>
+</html>
